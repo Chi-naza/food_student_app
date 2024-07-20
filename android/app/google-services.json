@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "568510942643",
+    "project_id": "food-student-app",
+    "storage_bucket": "food-student-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568510942643:android:79e56e3c3ed68dc2020fc6",
+        "android_client_info": {
+          "package_name": "com.example.food_app2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZfHnS7cT7Utuu_736fPEDh_sGOyK3SQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
