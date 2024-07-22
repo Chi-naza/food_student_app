@@ -94,8 +94,9 @@ class AuthController extends GetxController {
         print("User Not Verified");
         credential.user!.sendEmailVerification();
         showSnackBar(
-            message:
-                "You have not yet verified your email. Check your inbox now and verify your email");
+          message:
+              "You have not yet verified your email. Check your inbox now and verify your email",
+        );
         //
       }
 
