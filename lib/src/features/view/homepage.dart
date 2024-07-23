@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app2/src/features/view/test.dart';
+import 'package:food_app2/src/features/view/image_screen.dart';
+import 'package:food_app2/src/features/view/network_request_screen.dart';
 import 'package:food_app2/src/utilities/gridtile.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -84,9 +85,7 @@ class _HomePageState extends State<HomePage> {
 
               // heading
               GestureDetector(
-                onTap: () {
-                  Get.to(TestScreen());
-                },
+                onTap: () {},
                 child: Text(
                   "Delicious food already to deliver to you",
                   style: GoogleFonts.spaceMono(
@@ -157,15 +156,8 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 child: SizedBox(
                   child: TabBarView(children: [
-                    TestScreen(),
-                    // gridTile(
-                    //     imageUrl: "assets/food_one.png",
-                    //     heading: "burger",
-                    //     subHeading: "tasty and yummy",
-                    //     price: "\$10.00"),
-                    Container(
-                      color: Colors.green,
-                    ),
+                    ImageScreen(),
+                    NetworkRequestsScreen(),
                     Container(
                       color: Colors.blue,
                     )

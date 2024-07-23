@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:food_app2/src/features/view/homepage.dart';
 import 'package:food_app2/src/features/view/onboardingscreen.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,9 +22,19 @@ class _SplashScreenState extends State<SplashScreen> {
   //delay and go to onboarding screen
   void _navigateOnboardingScreen() async {
     await Future.delayed(const Duration(seconds: 10));
-    Get.offAll(const OnboardingScreen(),
+    var prefs = await SharedPreferences.getInstance();
+
+    bool isUserNew = prefs.getBool("isUserNew") ?? true;
+
+    if (isUserNew) {
+      Get.offAll(
+        const OnboardingScreen(),
         transition: Transition.rightToLeft,
-        duration: const Duration(seconds: 1));
+        duration: const Duration(seconds: 1),
+      );
+    } else {
+      Get.offAll(const HomePage());
+    }
   }
 
   @override

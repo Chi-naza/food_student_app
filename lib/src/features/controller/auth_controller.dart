@@ -82,6 +82,7 @@ class AuthController extends GetxController {
         await prefs.setString("email", credential.user!.email.toString());
         await prefs.setString("password", password);
         await prefs.setString("userid", credential.user!.uid);
+        await prefs.setBool("isUserNew", false);
 
         showSnackBar(
           message: "${credential.user!.email} just signed in",

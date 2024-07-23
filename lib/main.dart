@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:food_app2/src/features/controller/auth_controller.dart';
-import 'package:food_app2/src/features/view/test.dart';
+import 'package:food_app2/src/features/view/splashscreen.dart';
+import 'package:food_app2/src/features/view/network_request_screen.dart';
 import 'package:food_app2/src/utilities/notification.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TestScreen(),
+      home: SplashScreen(),
     );
   }
 }
