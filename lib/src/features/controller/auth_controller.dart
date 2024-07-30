@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
   RxBool isLoading = false.obs;
+  RxBool isDarkMode = false.obs;
 
   Rxn<User> currentUser = Rxn<User>();
 
@@ -127,6 +128,22 @@ class AuthController extends GetxController {
       backgroundColor: isError ? Colors.red : Colors.green,
       colorText: Colors.white,
     );
+  }
+
+  ThemeMode changeThemeMode() {
+    if (isDarkMode.value) {
+      isDarkMode.value = false;
+      return ThemeMode.light;
+    } else {
+      isDarkMode.value = true;
+      return ThemeMode.dark;
+    }
+  }
+
+  bool toggleTheme() {
+    isDarkMode.value = !isDarkMode.value;
+    print(isDarkMode.value);
+    return isDarkMode.value;
   }
 }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_app2/src/features/controller/auth_controller.dart';
 import 'package:food_app2/src/features/view/image_screen.dart';
 import 'package:food_app2/src/features/view/network_request_screen.dart';
-import 'package:food_app2/src/utilities/gridtile.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -62,9 +62,9 @@ class _HomePageState extends State<HomePage> {
                           child: Container(
                               height: 17,
                               width: 17,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Color(0xffeb3254)),
+                                  color: Theme.of(context).primaryColor),
                               child: const Text(
                                 "0",
                                 textAlign: TextAlign.center,
@@ -117,8 +117,22 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+
+              Builder(builder: (context) {
+                return IconButton(
+                  onPressed: () {
+                    var auth = Get.find<AuthController>();
+
+                    setState(() {
+                      auth.toggleTheme();
+                    });
+                  },
+                  iconSize: 60,
+                  icon: const Icon(Icons.dark_mode_outlined),
+                );
+              }),
               const SizedBox(
-                height: 30,
+                height: 8,
               ),
 
               //tab section
@@ -129,10 +143,10 @@ class _HomePageState extends State<HomePage> {
                   tabs: [
                     Text(
                       "Pizza",
-                      style: GoogleFonts.spaceMono(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.normal),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(fontSize: 17),
                     ),
                     Text(
                       "Burger",
@@ -159,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                     ImageScreen(),
                     NetworkRequestsScreen(),
                     Container(
-                      color: Colors.blue,
+                      color: Theme.of(context).primaryColor,
                     )
                   ]),
                 ),
