@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app2/src/constants/local_data.dart';
 import 'package:food_app2/src/features/view/homepage.dart';
+import 'package:food_app2/src/utilities/snackbar_custom.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -119,31 +120,6 @@ class AuthController extends GetxController {
     isLoading.value = true;
     await firebaseAuthInstance.signOut();
     isLoading.value = false;
-  }
-
-  void showSnackBar({required String message, bool isError = true}) {
-    Get.snackbar(
-      "AUTH",
-      message,
-      backgroundColor: isError ? Colors.red : Colors.green,
-      colorText: Colors.white,
-    );
-  }
-
-  ThemeMode changeThemeMode() {
-    if (isDarkMode.value) {
-      isDarkMode.value = false;
-      return ThemeMode.light;
-    } else {
-      isDarkMode.value = true;
-      return ThemeMode.dark;
-    }
-  }
-
-  bool toggleTheme() {
-    isDarkMode.value = !isDarkMode.value;
-    print(isDarkMode.value);
-    return isDarkMode.value;
   }
 }
 

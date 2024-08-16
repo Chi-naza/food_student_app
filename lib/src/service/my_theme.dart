@@ -12,7 +12,7 @@ var appLightTheme = ThemeData(
   ),
   textTheme: TextTheme(
     titleLarge:
-        GoogleFonts.spaceMono(fontSize: 45, fontWeight: FontWeight.w700),
+        GoogleFonts.spaceMono(fontSize: 35, fontWeight: FontWeight.w700),
     titleSmall: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
     bodySmall: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
   ),
@@ -27,7 +27,8 @@ var appDarkTheme = ThemeData(
       centerTitle: true,
       titleTextStyle: TextStyle(color: Colors.white)),
   textTheme: const TextTheme(
-    titleLarge: const TextStyle(fontSize: 45, fontWeight: FontWeight.w700),
+    titleLarge: const TextStyle(
+        fontSize: 35, fontWeight: FontWeight.w700, color: Color(0xffeb3254)),
     titleSmall: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
     bodySmall: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
   ),

@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:food_app2/src/features/controller/auth_controller.dart';
 import 'package:food_app2/src/features/view/splashscreen.dart';
 import 'package:food_app2/src/service/my_theme.dart';
-import 'package:food_app2/src/service/theme_service.dart';
 import 'package:food_app2/src/utilities/notification.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -31,18 +29,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var auth = Get.find<AuthController>();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appLightTheme,
       darkTheme: appDarkTheme,
-      themeMode: auth.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
+      themeMode: Get.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: SplashScreen(),
     );
   }
-
-  // Futur isDarkMode()async{
-  //   var sp = await SharedPreferences.getInstance();
-  //   return sp.getBool("theme") ?? false;
-  // }
 }

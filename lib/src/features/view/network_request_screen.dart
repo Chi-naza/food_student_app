@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app2/src/features/model/cat_data_model.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkRequestsScreen extends StatefulWidget {
@@ -9,7 +10,7 @@ class NetworkRequestsScreen extends StatefulWidget {
 }
 
 class _NetworkRequestsScreenState extends State<NetworkRequestsScreen> {
-  List<Map> ourCatData = [];
+  List<CatDataModel> ourCatData = [];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,8 @@ class _NetworkRequestsScreenState extends State<NetworkRequestsScreen> {
             onPressed: () {
               fetchCatDetails(5);
             },
-            child: Text("GET NOW"),
+            child:
+                Text("GET NOW", style: Theme.of(context).textTheme.titleLarge),
           ),
         ],
       ),

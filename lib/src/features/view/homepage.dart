@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_app2/src/features/controller/auth_controller.dart';
+import 'package:food_app2/src/features/view/auth_biometric_screen.dart';
 import 'package:food_app2/src/features/view/image_screen.dart';
 import 'package:food_app2/src/features/view/network_request_screen.dart';
-import 'package:get/get.dart';
+import 'package:food_app2/src/service/theme_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +18,9 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Hello Mr Chuks"),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -121,14 +124,12 @@ class _HomePageState extends State<HomePage> {
               Builder(builder: (context) {
                 return IconButton(
                   onPressed: () {
-                    var auth = Get.find<AuthController>();
-
-                    setState(() {
-                      auth.toggleTheme();
-                    });
+                    ThemeService.changeThemeMode();
                   },
                   iconSize: 60,
-                  icon: const Icon(Icons.dark_mode_outlined),
+                  icon: Icon(ThemeService.isDarkMode()
+                      ? Icons.dark_mode
+                      : Icons.dark_mode_outlined),
                 );
               }),
               const SizedBox(
@@ -156,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.normal),
                     ),
                     Text(
-                      "Drinks",
+                      "Biometrics",
                       style: GoogleFonts.spaceMono(
                           color: Colors.black,
                           fontSize: 15,
@@ -172,9 +173,7 @@ class _HomePageState extends State<HomePage> {
                   child: TabBarView(children: [
                     ImageScreen(),
                     NetworkRequestsScreen(),
-                    Container(
-                      color: Theme.of(context).primaryColor,
-                    )
+                    BiometricScreen(),
                   ]),
                 ),
               )
