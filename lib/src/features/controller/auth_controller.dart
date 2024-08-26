@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app2/src/constants/local_data.dart';
+import 'package:food_app2/src/features/model/cat_data_model.dart';
 import 'package:food_app2/src/features/view/homepage.dart';
 import 'package:food_app2/src/utilities/snackbar_custom.dart';
 import 'package:get/get.dart';
